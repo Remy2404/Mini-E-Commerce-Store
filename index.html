@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mini E-Commerce Store - Browse products and save your favorites">
+    <meta name="theme-color" content="#6366f1">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Mini Store - E-Commerce Demo">
+    <meta property="og:description" content="Browse products and save your favorites">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.svg">
+    
+    <title>Mini Store | E-Commerce Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">
+                    <img src="assets/logo.svg" alt="MiniStore logo">
+                </span>
+                <span>MiniStore</span>
+            </a>
+            
+            <div class="search-container">
+                <input 
+                    type="search" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Search products..."
+                    aria-label="Search products"
+                >
+            </div>
+            
+            <nav class="nav-actions">
+                <button id="products-btn" class="nav-btn active" aria-label="View all products">
+                    <span>Products</span>
+                </button>
+                <button id="favorites-btn" class="nav-btn" aria-label="View favorites">
+                    <span>Favorites</span>
+                    <span id="favorites-badge" class="favorites-badge" data-count="0">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Category Tabs -->
+        <div id="category-tabs" class="category-tabs" role="tablist" aria-label="Product categories">
+            <!-- Categories will be dynamically inserted -->
+        </div>
+
+        <!-- Products Section -->
+        <section class="products-section" aria-label="Products">
+            <div class="section-header">
+                <h2 id="section-title" class="section-title">Products</h2>
+                <span id="products-count" class="products-count">0 items</span>
+            </div>
+            
+            <div id="products-grid" class="products-grid" role="list">
+                <!-- Products will be dynamically inserted -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">
+            Built with <span class="footer-highlight">love</span> using 
+            <span class="footer-highlight">ES6+ JavaScript</span> | 
+            Data from <a href="https://fakestoreapi.com" target="_blank" rel="noopener" class="footer-highlight">FakeStoreAPI</a>
+        </p>
+        <p class="footer-text" style="margin-top: 0.5rem; font-size: 0.8rem;">
+            Demonstrates: async/await • Spread operator • Fetch API • LocalStorage • Arrow functions • ES Modules
+        </p>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Main JavaScript Module -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
