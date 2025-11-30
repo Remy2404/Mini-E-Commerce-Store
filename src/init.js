@@ -1,8 +1,9 @@
+// src/init.js
 import { fetchProducts } from '../api.js';
 import { loadIcons, getIcon } from '../icons.js';
 import { state, elements } from './state.js';
 import { debounce, showToast } from './utils.js';
-import { setHeartSvgs, loadTemplates, renderLoading, renderProducts, renderCategoryTabs, renderError, updateFavoritesBadge, updateSectionHeader } from './render.js';
+import { setHeartSvgs, renderLoading, renderProducts, renderCategoryTabs, renderError, updateFavoritesBadge, updateSectionHeader } from './render.js';
 import { filterProducts, filterByCategory } from './filters.js';
 import { handleFavoriteClick, addToCart, clearFilters } from './actions.js';
 
@@ -17,8 +18,6 @@ export const initApp = async () => {
 
         // load icons and set heart svgs
         await loadIcons();
-        // load HTML templates used by render.js (avoid importing .html as modules)
-        await loadTemplates();
         const filled = getIcon('filledHeart') || '';
         const outline = getIcon('outlineHeart') || '';
         setHeartSvgs(filled, outline);
