@@ -2,6 +2,7 @@
 import { fetchProducts } from '../api.js';
 import { loadIcons, getIcon } from '../icons.js';
 import { state, elements } from './state.js';
+import { getFavorites } from '../storage.js';
 import { debounce, showToast } from './utils.js';
 import { setHeartSvgs, renderLoading, renderProducts, renderCategoryTabs, renderError, updateFavoritesBadge, updateSectionHeader } from './render.js';
 import { filterProducts, filterByCategory } from './filters.js';
@@ -50,7 +51,7 @@ export const attachEventListeners = () => {
         if (state.currentView === 'products') {
             filterProducts();
         } else {
-            const favorites = (window.getFavorites && window.getFavorites()) || [];
+            const favorites = getFavorites();
             const q = query.toLowerCase();
             const filtered = favorites.filter(product => product.title.toLowerCase().includes(q) || product.category.toLowerCase().includes(q));
             renderProducts(filtered);
@@ -73,7 +74,7 @@ export const attachEventListeners = () => {
         elements.favoritesBtn.classList.add('active');
         elements.productsBtn.classList.remove('active');
         elements.categoryTabs.classList.add('hidden');
-        const favorites = (window.getFavorites && window.getFavorites()) || [];
+        const favorites = getFavorites();
         renderProducts(favorites);
         updateSectionHeader();
     });
